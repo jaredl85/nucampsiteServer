@@ -4,11 +4,6 @@ const Campsite = require('../models/campsite');
 const campsiteRouter = express.Router();
 
 campsiteRouter.route('/')
-// .all((req, res, next) => {
-//     res.statusCode = 200;
-//     res.setHeader('Content-Type', 'text/plain');
-//     next();
-// })
 .get((req, res, next) => {
     Campsite.find()
     .then(campsites => {
@@ -44,11 +39,6 @@ campsiteRouter.route('/')
 ////--- begin campsiteId routes
 
 campsiteRouter.route('/:campsiteId')
-// .all((req, res, next) => {
-//     res.statusCode = 200;
-//     res.setHeader('Content-Type', 'text/plain');
-//     next();
-// })
 .get((req, res, next) => {
     Campsite.findById(req.params.campsiteId)
     .then(campsite => {
